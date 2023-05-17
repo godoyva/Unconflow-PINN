@@ -1,7 +1,7 @@
 # Unconflow-PINN
 University of Parma, Italy & Universitat Politènica de València, Spain
 
-Authors: Daniele Secci, Vanessa A. Godoy, J. Jaime Gómez-Hernández
+Authors: Daniele Secci, Vanessa A. Godoy and J. Jaime Gómez-Hernández
 
 # What is this repository for?
 Unconflow-PINN is a software for solving the unconfined aquifer transient flow problem by using PINN. 
