@@ -1,6 +1,12 @@
 # Unconflow-PINN
-The unconfined aquifer transient flow problem is solved by using PINN; PINNs accurately compute the time-varying phreatic surface and piezometric heads; PINNs have proven to be very effective in data-scarce environments; PINNs are a promising alternative to classical numerical methods in hydrogeology.
 
+# What is this repository for?
+Unconflow-PINN is a software for solving the unconfined aquifer transient flow problem by using PINN. 
+
+# Highlights
+PINNs accurately compute the time-varying phreatic surface and piezometric heads; PINNs have proven to be very effective in data-scarce environments; PINNs are a promising alternative to classical numerical methods in hydrogeology.
+
+# How to use the code
 The two available folders "SC1" and "SC2" contain the code to solve the case of a homogeneous and isotropic, and heterogeneous and anisotropic unconfined aquifer, respectively.
 
 From a programming language perspective, the two cases are solved in the same way, and therefore, instructions on how to use scripts, functions, and data will be provided only in reference to one of the two aforementioned folders.
@@ -26,3 +32,6 @@ After training, the networks undergo validation by comparing their predictions w
 The script "ANN1_evaluation.m" offers both quantitative and visual comparisons of the piezometric head between the network predictions and the MODFLOW predictions calculated at the center points of the active discretization cells in the numerical model. Contour maps, along with the discrepancies, are presented.
 
 Once the proper functioning of ANN1 has been verified, we need to validate the ability of the two networks to work together and accurately estimate the position of the phreatic surface and the piezometric head below it. The script "PINN_vs_NumericalModel" generates piezometric head maps at the specified times using both the MODFLOW simulation and the PINN prediction. It is important to note that the MODFLOW maps are generated using a pixel-based discretization method, while the PINN maps are constructed with a denser discretization, that the user can define (in this script discr=200).
+
+# Do you have any question?
+Feel free to contact us at this email address: daniele.secci@unipr.it
