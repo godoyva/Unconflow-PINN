@@ -11,7 +11,7 @@ The two available folders "SC1" and "SC2" contain the code to solve the case of 
 
 From a programming language perspective, the two cases are solved in the same way, and therefore, instructions on how to use scripts, functions, and data will be provided only in reference to one of the two aforementioned folders.
 
-Let's start by downloading the SC1 folder, inside of which we will find 3 scripts, 7 functions, 1 .mat data file, and 1 .xlsx file.
+Let's start by opening the SC1 folder, inside of which we will find 3 scripts, 7 functions, 1 .mat data file, and 1 .xlsx file.
 
 The main script is "Unconfined_homogeneous_isotropic.m". Inside, you will find the main body of the code used to develop the PINN. It is the first script that needs to be run to start training the neural network.
 
