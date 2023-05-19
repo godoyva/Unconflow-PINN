@@ -20,7 +20,9 @@ The main script is "Unconfined_homogeneous_isotropic.m". Inside, you will find t
 
 Within this script, 7 functions will be used. The first two, "initializeHe.m" and "initializeZeros.m", are used to initialize the weights and biases of the neural networks.
 
-In this work, two structurally identical neural networks, with the only difference being their input and output layers, are used. The first network (ANN1) is trained to compute the piezometric head value (output) using the point coordinates (𝑥, 𝑧) and the time (𝑡) as inputs. The second network (ANN2), which takes the 𝑥 coordinate and the time as input values, returns the 𝑧 coordinate value (output) that indicates the position of the free surface at a specific time. Although both networks could be trained simultaneously from the beginning using a single loss function, we found that it is more efficient if there is a preliminary iteration in which ANN1 is trained first, and then ANN2 is trained next (with ANN1 fixed). The weights and biases found in this preliminary iteration are used as the starting values for the joint training of the two networks.
+
+In this work, two neural networks of the same structure are employed. They differ only in their input and output layers. The first network, called ANN1, is trained to calculate the piezometric head value using the point coordinates (𝑥, 𝑧) and time (𝑡) as inputs. The second network, ANN2, takes the 𝑥 coordinate and time as inputs and predicts the 𝑧 coordinate value, representing the position of the free surface at a specific time.
+While it's possible to train both networks simultaneously with a single loss function, we observed that a more efficient approach involves an initial iteration. In this iteration, ANN1 is trained first, and then ANN2 is trained with ANN1's parameters fixed. The weights and biases obtained from this preliminary iteration serve as the initial values for the joint training of both networks.
 
 Clarifying the concept of using 2 neural networks with different objectives, we proceed by saying that the function "model.m" represents ANN1, while "model_2.m" defines ANN2.
 
