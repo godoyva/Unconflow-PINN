@@ -12,15 +12,15 @@ H = model(parameters,dlX,dlZ,dlT);
 % ∂/∂x(K_xx(x,z)*h(x,z,t)*∂h/∂x(x,z,t))+∂/∂y(K_yy(x,z)*h(x,z,t)*∂h/∂y(x,z,t))=Sy∂h/∂t(x,y,t)+r 
 
 gradientsH = dlgradient(sum(H,'all'),{dlX,dlZ,dlT},'EnableHigherDerivatives',true);
-dHx = gradientsH{1};
-dHz = gradientsH{2};
-dHt = gradientsH{3};
+Hx = gradientsH{1};
+Hz = gradientsH{2};
+Ht = gradientsH{3};
 
-dH_dHx=dlgradient(sum(H_dHx,'all'),dlX,'EnableHigherDerivatives',true);
-dH_dHz=dlgradient(sum(H_dHz,'all'),dlZ,'EnableHigherDerivatives',true);
+dHx=dlgradient(sum(Hx,'all'),dlX,'EnableHigherDerivatives',true);
+dHz=dlgradient(sum(Hz,'all'),dlZ,'EnableHigherDerivatives',true);
 
-Tx=T.*dH_dHx;
-Tz=T.*dH_dHz;
+Tx=T.*dHx;
+Tz=T.*dHz;
 S_dHt=S.*dHt;
 
 % Calculate lossF. Enforce groundwater flow equation
