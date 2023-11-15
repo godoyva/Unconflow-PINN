@@ -9,22 +9,19 @@ H = model(parameters,dlX,dlZ,dlT);
 % Evaluate derivatives with respect to X, Z and T for solving the ground
 % water flow equation:
 
-% ∂/∂x(K_xx(x,z)*h(x,z,t)*∂h/∂x(x,z,t))+∂/∂y(K_yy(x,z)*h(x,z,t)*∂h/∂y(x,z,t))=Sy∂h/∂t(x,y,t)+r 
+% ∂/∂x(K_xx(x,z)*∂h/∂x(x,z,t))+∂/∂y(K_zz(x,z)*∂h/∂y(x,z,t))=Sy∂h/∂t(x,y,t)+r 
 
 gradientsH = dlgradient(sum(H,'all'),{dlX,dlZ,dlT},'EnableHigherDerivatives',true);
 Hx = gradientsH{1};
 Hz = gradientsH{2};
 Ht = gradientsH{3};
 
-H_Hx=H.*Hx;
-H_Hz=H.*Hz;
-
 dH_Hx=dlgradient(sum(H_Hx,'all'),dlX,'EnableHigherDerivatives',true);
 dH_Hz=dlgradient(sum(H_Hz,'all'),dlZ,'EnableHigherDerivatives',true);
 
 
-Tx=T.*dH_Hx;
-Tz=T.*dH_Hz;
+Tx=T.*Hx;
+Tz=T.*Hz;
 SH=S.*Ht;
 
 % Calculate lossF. Enforce groundwater flow equation
