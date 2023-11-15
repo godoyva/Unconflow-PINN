@@ -16,15 +16,12 @@ dHx = gradientsH{1};
 dHz = gradientsH{2};
 dHt = gradientsH{3};
 
-H_dHx=H.*dHx;
-H_dHz=H.*dHz;
-
 dH_dHx=dlgradient(sum(H_dHx,'all'),dlX,'EnableHigherDerivatives',true);
 dH_dHz=dlgradient(sum(H_dHz,'all'),dlZ,'EnableHigherDerivatives',true);
 
 
-Tx=T.*dH_dHx;
-Tz=T.*dH_dHz;
+Tx=T.*dHx;
+Tz=T.*dHz;
 S_dHt=S.*dHt;
 
 % Calculate lossF. Enforce groundwater flow equation
