@@ -12,7 +12,7 @@ H = model(parameters,dlX,dlZ,dlT);
 % ∂/∂x(K_xx(x,z)*h(x,z,t)*∂h/∂x(x,z,t))+∂/∂y(K_yy(x,z)*h(x,z,t)*∂h/∂y(x,z,t))=Sy∂h/∂t(x,y,t)+r 
 
 gradientsH = dlgradient(sum(H,'all'),{dlX,dlZ,dlT},'EnableHigherDerivatives',true);
-HHx = gradientsH{1};
+Hx = gradientsH{1};
 Hz = gradientsH{2};
 Ht = gradientsH{3};
 
