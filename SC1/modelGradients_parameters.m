@@ -21,10 +21,10 @@ dHz=dlgradient(sum(Hz,'all'),dlZ,'EnableHigherDerivatives',true);
 
 Tx=T.*dHx;
 Tz=T.*dHz;
-S_dHt=S.*dHt;
+SH=S.*Ht;
 
 % Calculate lossF. Enforce groundwater flow equation
-f = Tx + Tz - S_dHt;
+f = Tx + Tz - SH;
 zeroTarget = zeros(size(f), 'like', f);
 lossF = mse(f, zeroTarget);
 
