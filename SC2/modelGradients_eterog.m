@@ -16,9 +16,6 @@ Hx = gradientsH{1};
 Hz = gradientsH{2};
 Ht = gradientsH{3};
 
-H_Hx=H.*Hx;
-H_Hz=H.*Hz;
-
 %For the heterogeneous and anisotropic aquifer define the different value
 %of the hydraulic conductivity
 for i=1:size(H,2)
@@ -36,8 +33,8 @@ for i=1:size(H,2)
         T_z=T_x*0.1;
     end
 
-    Tx_Hx(i)=T_x.*H_Hx(i);
-    Tz_Hz(i)=T_z.*H_Hz(i);
+    Tx_Hx(i)=T_x.*Hx(i);
+    Tz_Hz(i)=T_z.*Hz(i);
 
 end
 SH=S.*Ht(i);
