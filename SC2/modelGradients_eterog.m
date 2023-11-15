@@ -9,7 +9,7 @@ H = model(parameters,dlX,dlZ,dlT);
 % Evaluate derivatives with respect to X, Z and T for solving the ground
 % water flow equation:
 
-% ∂/∂x(K_xx(x,z)*h(x,z,t)*∂h/∂x(x,z,t))+∂/∂y(K_yy(x,z)*h(x,z,t)*∂h/∂y(x,z,t))=Sy∂h/∂t(x,y,t)+r 
+% ∂/∂x(K_xx(x,z)*∂h/∂x(x,z,t))+∂/∂y(K_zz(x,z)*∂h/∂y(x,z,t))=Sy∂h/∂t(x,y,t)+r 
 
 gradientsH = dlgradient(sum(H,'all'),{dlX,dlZ,dlT},'EnableHigherDerivatives',true);
 Hx = gradientsH{1};
